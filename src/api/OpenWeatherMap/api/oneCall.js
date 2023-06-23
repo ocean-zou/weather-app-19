@@ -1,12 +1,10 @@
-import OpenWeatherMap from "../OpenWeatherMap"
+import OpenWeatherMap from "../OpenWeatherMapAPI"
 
-const MELBOURNE_GEO={lat: -37.8142176, lon: 144.9631608}
-
-export default function oneCall(){
+export default function oneCall({lat,lon}){
     return( OpenWeatherMap.get("/onecall",{
         params:{
-            lat:MELBOURNE_GEO.lat,
-            lon:MELBOURNE_GEO.lon,
+            lat,
+            lon,
         }
     })
     .then((response)=>response.data))      
