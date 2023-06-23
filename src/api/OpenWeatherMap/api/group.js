@@ -1,4 +1,4 @@
-import OpenWeatherMap from "../OpenWeatherMap"
+import OpenWeatherMap from "../OpenWeatherMapAPI"
 
 const OTHER_CITIES=[
     {name:"Melbourne",id:2158177},

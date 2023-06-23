@@ -5,7 +5,7 @@ import Temperature from '../../../Temperature'
 import CityName from '../../../CityName'
 import Weather from '../../../Weather'
 
-export default function CurrentCityWeather({loading,current}){
+export default function CurrentCityWeather({loading,current,name}){
     return(
         <BackgroundImage image={bg} >
             <div className='flex justify-between text-center pt-16 px-24 gap-16'>
@@ -17,12 +17,14 @@ export default function CurrentCityWeather({loading,current}){
                     <Weather loading={loading} weather={current?.weather[0].main}/>
                     <Details loading={loading} wind={current?.wind_speed} humidity={current?.humidity}/>
                 </div>
-                <div className="
-                    text-white text-5xl font-medium 
-                    after:block after:content-[''] after:h-[3px] after:w-1/2 
-                    after:bg-white after:mt-2 after:translate-x-1/2
+                <div className=" min-w-[250px] text-center">
+                    <div className="
+                        text-white text-5xl font-medium
+                        after:block after:content-[''] after:h-[3px] after:w-1/2 
+                        after:bg-white after:mt-2 after:translate-x-1/2
                     ">
-                    <CityName name="Melbourne"/>
+                        <CityName name={name}/>
+                    </div>
                 </div>
             </div>
             <div className="bg-black opacity-10 w-full h-4"/> 
