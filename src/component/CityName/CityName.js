@@ -1,5 +1,6 @@
-export default function CityName() {
-    return(<div>
-        CityName
+export default function CityName({ name}) {
+    return(
+    <div className="tracking-wider">
+        {name}
     </div>)
 }
