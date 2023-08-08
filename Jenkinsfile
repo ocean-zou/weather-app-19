@@ -4,12 +4,7 @@ pipeline {
             image 'node:18' 
             args '-u root:root' 
         }
-    }
-    environment{
-        AWS_ACCESS_KEY_ID     = credentials('Access_Key_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('Secret_Access_Key')
-    }
-    
+    }    
     stages {
         stage('install') { 
             steps {
@@ -32,7 +27,15 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "aws s3 sync build/ s3://weatherapplicationbyocean"
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: "aws credentials",
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    sh "aws s3 sync build/ s3://weatherapplicationbyocean"
+                }
+                
             }
         }
     }
