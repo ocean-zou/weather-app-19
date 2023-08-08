@@ -28,3 +28,4 @@ const CITIES=[
     {name:'Perth',lat: -31.9558964, lon: 115.8605801},
     {name:'Hobart',lat: -42.8825088, lon: 147.3281233}
 ]
+test
