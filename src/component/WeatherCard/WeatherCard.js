@@ -33,7 +33,6 @@ export default function WeatherCard(){
     },[city])
     return(
     <div className="rounded-3xl shadow-2xl shadow-black/50 bg-white overflow-hidden">
-        <h1>github action</h1>
         <CurrentCityWeather current={current} loading={loading} name={city.name}/>
         <div className="flex gap-12 px-12 py-9">
             <OtherCities onCityClick={(newCity)=>setCity(newCity)}/>
