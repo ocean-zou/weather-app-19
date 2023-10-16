@@ -1,3 +1,4 @@
+import {isMobile} from 'react-device-detect'
 import BackgroundImage from './component/BackgroundImage/BackgroundImage';
 import WeatherCard from './component/WeatherCard'
 import bg from './asset/bg-img.webp'
